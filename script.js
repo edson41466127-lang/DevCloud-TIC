@@ -4,6 +4,7 @@
   const $ = (selector, context = document) => context.querySelector(selector);
   const $$ = (selector, context = document) => [...context.querySelectorAll(selector)];
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
   const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
   const plans = {
     developer: { name: 'Developer', price: 15, specs: '2 GB RAM · 25 GB SSD' },
@@ -14,6 +15,46 @@
   function scrollToElement(element) {
     element?.scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
   }
+
+  const themeToggle = $('#theme-toggle');
+  const themeColor = $('meta[name="theme-color"]');
+  function getSavedTheme() {
+    try {
+      const savedTheme = localStorage.getItem('devcloud-theme');
+      return savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : null;
+    } catch {
+      return null;
+    }
+  }
+  function setTheme(theme, persist = false) {
+    const isDark = theme === 'dark';
+    document.documentElement.dataset.theme = theme;
+    if (themeToggle) {
+      const nextTheme = isDark ? 'light' : 'dark';
+      const label = `Activar modo ${nextTheme === 'dark' ? 'oscuro' : 'claro'}`;
+      themeToggle.setAttribute('aria-label', label);
+      themeToggle.title = label;
+      themeToggle.querySelector('.theme-toggle-label').textContent = nextTheme === 'dark' ? 'Oscuro' : 'Claro';
+      themeToggle.querySelector('use').setAttribute('href', isDark ? '#i-sun' : '#i-moon');
+    }
+    if (themeColor) themeColor.content = isDark ? '#101831' : '#f6f5ef';
+    if (persist) {
+      try {
+        localStorage.setItem('devcloud-theme', theme);
+      } catch {
+        // The current selection still applies when storage is unavailable.
+      }
+    }
+  }
+  const savedTheme = getSavedTheme();
+  setTheme(savedTheme || (systemTheme.matches ? 'dark' : 'light'));
+  themeToggle?.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    setTheme(nextTheme, true);
+  });
+  systemTheme.addEventListener('change', (event) => {
+    if (!getSavedTheme()) setTheme(event.matches ? 'dark' : 'light');
+  });
 
   // Menú móvil accesible: navegación, Escape y estado expandido sincronizados.
   const menuToggle = $('#menu-toggle');

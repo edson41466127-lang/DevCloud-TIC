@@ -370,3 +370,201 @@ h2 { font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.06; letter-spacing: -.0
 .infrastructure-image > img {
   object-position: center;
 }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 8px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.theme-toggle .icon {
+  width: 18px;
+  height: 18px;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0c1422;
+  --surface: #141e30;
+  --surface2: #1b2941;
+  --fg: #eef1ff;
+  --muted: #b9c4e2;
+  --accent: #aebcff;
+  --mint: var(--accent);
+  --mint-hover: #c7d0ff;
+  --line: #374467;
+}
+
+html:not([data-theme="dark"]) {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] .site-header {
+  background: var(--bg);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .desktop-nav,
+html[data-theme="dark"] .footer-top nav,
+html[data-theme="dark"] .footer-bottom {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .metrics,
+html[data-theme="dark"] .plan-card,
+html[data-theme="dark"] .storage-panel,
+html[data-theme="dark"] .region-card,
+html[data-theme="dark"] .learning-details {
+  background: var(--surface);
+}
+
+html[data-theme="dark"] .metrics,
+html[data-theme="dark"] .plan-card,
+html[data-theme="dark"] .storage-panel,
+html[data-theme="dark"] .region-card,
+html[data-theme="dark"] .calculator-section,
+html[data-theme="dark"] .contact-section,
+html[data-theme="dark"] .learning-details,
+html[data-theme="dark"] .table-scroll {
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .metric-intro,
+html[data-theme="dark"] .metric-intro strong,
+html[data-theme="dark"] .product-category,
+html[data-theme="dark"] .product-bottom,
+html[data-theme="dark"] .product-bottom strong,
+html[data-theme="dark"] .plan-type,
+html[data-theme="dark"] .plan-features > li,
+html[data-theme="dark"] .check-list,
+html[data-theme="dark"] .region-card > div > span,
+html[data-theme="dark"] .region-code,
+html[data-theme="dark"] .faq-list summary > .icon,
+html[data-theme="dark"] .learning-details > summary,
+html[data-theme="dark"] td,
+html[data-theme="dark"] code {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .product-card,
+html[data-theme="dark"] .storage-card {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .product-icon,
+html[data-theme="dark"] .round-arrow,
+html[data-theme="dark"] .product-tabs,
+html[data-theme="dark"] .calculator-card,
+html[data-theme="dark"] .contact-form-wrap {
+  background: var(--surface);
+  border-color: var(--line);
+}
+
+html[data-theme="dark"] .product-tabs button.active,
+html[data-theme="dark"] .contact-symbol,
+html[data-theme="dark"] .success-icon {
+  background: var(--surface2);
+  border-color: var(--line);
+  color: var(--accent);
+}
+
+html[data-theme="dark"] .plan-card.featured {
+  background: linear-gradient(145deg, #1d2b45, var(--surface) 75%);
+  border-color: #6879b5;
+}
+
+html[data-theme="dark"] .button,
+html[data-theme="dark"] .button-outline:hover {
+  color: #101831;
+}
+
+html[data-theme="dark"] .calculator-section,
+html[data-theme="dark"] .contact-section {
+  background: var(--surface2);
+}
+
+html[data-theme="dark"] .calculator-total > div > span,
+html[data-theme="dark"] .field > label,
+html[data-theme="dark"] .quantity-heading label,
+html[data-theme="dark"] .contact-form-wrap .field > label,
+html[data-theme="dark"] .environment-field legend {
+  color: var(--fg);
+}
+
+html[data-theme="dark"] .field input:not([type="range"]),
+html[data-theme="dark"] .field select,
+html[data-theme="dark"] .field textarea,
+html[data-theme="dark"] .contact-form-wrap .field input,
+html[data-theme="dark"] .contact-form-wrap .field select,
+html[data-theme="dark"] .contact-form-wrap .field textarea {
+  background-color: #0e1728;
+  border-color: #465477;
+  color: var(--fg);
+}
+
+html[data-theme="dark"] .field input::placeholder,
+html[data-theme="dark"] .field textarea::placeholder,
+html[data-theme="dark"] .contact-form-wrap .field input::placeholder,
+html[data-theme="dark"] .contact-form-wrap .field textarea::placeholder {
+  color: #a0accd;
+}
+
+html[data-theme="dark"] .region-home {
+  background: #1b2941;
+  border-color: #6879b5;
+}
+
+html[data-theme="dark"] .infrastructure-section,
+html[data-theme="dark"] .site-footer {
+  background: #101831;
+}
+
+html[data-theme="dark"] .dc-assistant {
+  background: #17213e;
+  color: var(--fg);
+}
+
+html[data-theme="dark"] .dc-assistant-description,
+html[data-theme="dark"] .dc-assistant-note {
+  color: var(--muted);
+}
+
+html[data-theme="dark"] .dc-assistant-console {
+  border-color: #53648f;
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    gap: 0;
+    width: 40px;
+    padding: 8px;
+  }
+
+  .theme-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
