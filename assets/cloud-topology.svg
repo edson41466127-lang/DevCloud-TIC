@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" fill="none">
+  <defs>
+    <linearGradient id="top" x1="0%" y1="0%" x2="100%" y2="100%" gradientUnits="objectBoundingBox">
+      <stop stop-color="#f6f5ef"/><stop offset="1" stop-color="#a0afff"/>
+    </linearGradient>
+    <pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="1" r="1" fill="#acbcff" opacity=".35"/>
+    </pattern>
+    <g id="module" stroke="#d5deff" stroke-width="1.5" stroke-linejoin="round">
+      <path d="M0 46 115 0l154 60-115 46Z" fill="url(#top)"/>
+      <path d="M0 46v43l154 60v-43Z" fill="#14288b"/>
+      <path d="m154 106 115-46v43l-115 46Z" fill="#435fee"/>
+      <path d="m18 69 58 23m-58-13 32 12m43 4 39 15m-39-5 39 15" stroke="#a2b4ff"/>
+      <path d="m180 115 68-27" stroke="#a2b4ff"/>
+      <circle cx="179" cy="121" r="3" fill="#e0ff87" stroke="none"/>
+      <circle cx="194" cy="115" r="3" fill="#e0ff87" stroke="none"/>
+      <path d="m59 46 56-22 76 29-56 22Z" stroke="#4158b6"/>
+    </g>
+  </defs>
+  <path d="M30 25h500v330H30Z" fill="url(#dots)"/>
+  <g stroke="#9badff" stroke-opacity=".58">
+    <path d="m38 257 208-83 269 105-208 83Z"/>
+    <path d="m90 236 269 105m-217-126 269 105m-217-126 269 105m-358-16 208-83m-141 109 208-83m-141 109 208-83"/>
+    <path d="M38 257v-70h68m409 92v-98h-67M307 362v-30" stroke-dasharray="4 5"/>
+  </g>
+  <path d="M45 254 153 212l64 25m139-17 104 41h46" stroke="#e0ff87" stroke-width="1.5"/>
+  <g fill="#e0ff87"><circle cx="45" cy="254" r="4"/><circle cx="506" cy="261" r="4"/></g>
+  <path d="m114 237 115-46 169 66-115 46Z" fill="#121c5f" opacity=".65"/>
+  <use href="#module" x="141" y="151"/>
+  <use href="#module" x="141" y="96"/>
+  <use href="#module" x="141" y="41"/>
+  <g stroke="#d5deff" stroke-width="1">
+    <path d="M41 87h79l49 19m247 58 52-23h51"/>
+    <path d="M41 82v10m-5-5h10m473 49v10m-5-5h10"/>
+  </g>
+  <g fill="#edf1ff" font-size="10" font-family="monospace" letter-spacing="1">
+    <text x="41" y="76">CÓMPUTO</text>
+    <text x="421" y="130">DATOS</text>
+  </g>
+</svg>
